@@ -7,18 +7,42 @@
   display: grid;
   grid-template-columns: 70% 30%;
   grid-auto-rows: minmax(200px, auto);
+  grid-template-areas: 
+  "main aside"
+
+  ;
+  grid-gap: 10px;
 }
 
 
-.newWrapper > div:nth-child(odd){
-  /* background-color: #341; */
-}
 
-.newWrapper > div:nth-child(even){
-  background-color: #222;
-}
 
 .mainNewsCard{
   display: grid;
+  grid-area: main;
   grid-template-columns: 40% 60%
+}
+
+.mainNewsCardText p{
+  font-size: 13px;
+}
+
+.mainNewsCardText h2{
+  font-size: 17px;
+  font-weight: bold;
+  /* font-smooth: always; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.mainNewsCardText{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.aside{
+  grid-area: aside;
 }
