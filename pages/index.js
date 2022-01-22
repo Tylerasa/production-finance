@@ -53,22 +53,108 @@ export default function Home({ news }) {
                 />
               </div>
             </div>
+            <div className={styles.mainNewsCard}>
+              <div className={styles.mainNewsCardText}>
+                <div>
+                  <h2>{news.data.main.stream[4].content.title}</h2>
+                </div>
+                <div>
+                  <h2>{news.data.main.stream[5].content.title}</h2>
+                </div>
+                <div>
+                  <h2>{news.data.main.stream[6].content.title}</h2>
+                </div>
+              </div>
+              <div className={styles.imageWrapper}>
+                {/* <Image alt="Work" src={work} /> */}
+
+                <Image
+                  layout="fill"
+                  objectFit="cover"
+                  alt="Work"
+                  src={
+                    news.data.main.stream[4].content.thumbnail.resolutions[3]
+                      .url
+                  }
+                />
+              </div>
+            </div>
+            <div className={styles.mainNewsCard}>
+              <div className={styles.mainNewsCardText}>
+                <div>
+                  <h2>{news.data.main.stream[7].content.title}</h2>
+                </div>
+                <div>
+                  <h2>{news.data.main.stream[8].content.title}</h2>
+                </div>
+                <div>
+                  <h2>{news.data.main.stream[9].content.title}</h2>
+                </div>
+              </div>
+              <div className={styles.imageWrapper}>
+                {/* <Image alt="Work" src={work} /> */}
+
+                <Image
+                  layout="fill"
+                  objectFit="cover"
+                  alt="Work"
+                  src={
+                    news.data.main.stream[7].content.thumbnail.resolutions[3]
+                      .url
+                  }
+                />
+              </div>
+            </div>
           </div>
 
           <div className={styles.aside}>
-            <div className={styles.mainNewsCardText}>
-              <h2>Wall Street Has Its Worst Week Since March 2020</h2>
-
-              <p>
-                Technology stocks have been hit especially hard. The bond market
-                is also in disarray. Inflation is red hot and supply chain
-                disruptions continue. The recent decline comes as the Federal
-                Reserve begins to pull back the enormous stimulus programs it
-                began in the early months of the pandemic.
-              </p>
+            <div style={styles.asideSeperator}>
+              <div className={styles.mainNewsCardText}>
+                <h2>{news.data.main.stream[8].content.title}</h2>
+              </div>
+              <div style={{ height: "200px" }} className={styles.imageWrapper}>
+                <Image
+                  layout="fill"
+                  objectFit="cover"
+                  alt="Work"
+                  src={
+                    news.data.main.stream[8].content.thumbnail.resolutions[3]
+                      .url
+                  }
+                />
+              </div>
             </div>
-            <div>
-              <Image alt="Work" src={work} />
+            <div style={styles.asideSeperator}>
+              <div className={styles.mainNewsCardText}>
+                <h2>{news.data.main.stream[9].content.title}</h2>
+              </div>
+              <div style={{ height: "200px" }} className={styles.imageWrapper}>
+                <Image
+                  layout="fill"
+                  objectFit="cover"
+                  alt="Work"
+                  src={
+                    news.data.main.stream[9].content.thumbnail.resolutions[3]
+                      .url
+                  }
+                />
+              </div>
+            </div>
+            <div style={styles.asideSeperator}>
+              <div className={styles.mainNewsCardText}>
+                <h2>{news.data.main.stream[10].content.title}</h2>
+              </div>
+              <div style={{ height: "200px" }} className={styles.imageWrapper}>
+                <Image
+                  layout="fill"
+                  objectFit="cover"
+                  alt="Work"
+                  src={
+                    news.data.main.stream[10].content.thumbnail.resolutions[3]
+                      .url
+                  }
+                />
+              </div>
             </div>
           </div>
         </div>

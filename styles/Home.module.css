@@ -35,7 +35,6 @@ min-height: 300px;
 .mainNewsCardText h2{
   font-size: 14px;
   font-weight: bold;
-  /* font-smooth: always; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -66,3 +65,8 @@ min-height: 300px;
   border-bottom: 1px #e3e3e3 solid;
 
 }
+
+
+/* .asideSeperator{
+  margin-bottom: 10p
+} */
