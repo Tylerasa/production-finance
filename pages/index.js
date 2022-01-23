@@ -14,8 +14,10 @@ export default function Home({ news }) {
               </div>
               <div className={styles.imageWrapper}>
                 <Image
-                  width="100%"
-                  height={1000}
+                  // width={600}
+                  // height={300}
+                  layout="fill"
+
                   objectFit="cover"
                   alt="Work"
                   src={
@@ -138,7 +140,7 @@ export default function Home({ news }) {
           </div>
 
           <div className={styles.aside}>
-            <div style={styles.asideSeperator}>
+            <div className={styles.asideSeperator}>
               <div className={styles.mainNewsCardText}>
                 <h2>{news.data.main.stream[8].content.title}</h2>
               </div>
@@ -154,7 +156,7 @@ export default function Home({ news }) {
                 />
               </div>
             </div>
-            <div style={styles.asideSeperator}>
+            <div className={styles.asideSeperator}>
               <div className={styles.mainNewsCardText}>
                 <h2>{news.data.main.stream[9].content.title}</h2>
               </div>
@@ -170,7 +172,7 @@ export default function Home({ news }) {
                 />
               </div>
             </div>
-            <div style={styles.asideSeperator}>
+            <div className={styles.asideSeperator}>
               <div className={styles.mainNewsCardText}>
                 <h2>{news.data.main.stream[10].content.title}</h2>
               </div>

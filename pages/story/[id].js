@@ -16,6 +16,7 @@ const StoryInfo = ({ newInfo }) => {
               width={1200}
               height={400}
               objectFit="cover"
+              layout="responsive"
               alt="Work"
               src={
                 newInfo.data.contents[0].content.body.data.partnerData.cover
@@ -42,8 +43,6 @@ const StoryInfo = ({ newInfo }) => {
 export default StoryInfo;
 
 export const getServerSideProps = async (context) => {
-  console.log("hell");
-  console.log("context", context.params);
   const res = await fetch(
     `https://yh-finance.p.rapidapi.com/news/v2/get-details?uuid=${context.params.id}&region=US`,
     {
