@@ -1,7 +1,6 @@
 import React from "react";
-
 const index = () => {
-  return <div className={styles.container}>story</div>;
+  return <div></div>;
 };
 
 export default index;

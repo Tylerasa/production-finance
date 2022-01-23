@@ -1,9 +1,8 @@
 import styles from "../styles/Home.module.css";
-import work from "../public/work.jpg";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home({ news }) {
-  console.log(news);
   return (
     <div className={styles.container}>
       {news ? (
@@ -14,8 +13,6 @@ export default function Home({ news }) {
                 <h2>{news.data.main.stream[0].content.title}</h2>
               </div>
               <div className={styles.imageWrapper}>
-                {/* <Image alt="Work" src={work} /> */}
-
                 <Image
                   layout="fill"
                   objectFit="cover"
@@ -30,18 +27,28 @@ export default function Home({ news }) {
             <div className={styles.mainNewsCard}>
               <div className={styles.mainNewsCardText}>
                 <div>
-                  <h2>{news.data.main.stream[1].content.title}</h2>
+                  <Link href={`/story/${news.data.main.stream[1].id}`}>
+                    <a>
+                      <h2>{news.data.main.stream[1].content.title}</h2>
+                    </a>
+                  </Link>
                 </div>
                 <div>
-                  <h2>{news.data.main.stream[2].content.title}</h2>
+                  <Link href={`/story/${news.data.main.stream[2].id}`}>
+                    <a>
+                      <h2>{news.data.main.stream[2].content.title}</h2>
+                    </a>
+                  </Link>
                 </div>
                 <div>
-                  <h2>{news.data.main.stream[3].content.title}</h2>
+                  <Link href={`/story/${news.data.main.stream[3].id}`}>
+                    <a>
+                      <h2>{news.data.main.stream[3].content.title}</h2>
+                    </a>
+                  </Link>
                 </div>
               </div>
               <div className={styles.imageWrapper}>
-                {/* <Image alt="Work" src={work} /> */}
-
                 <Image
                   layout="fill"
                   objectFit="cover"
@@ -56,18 +63,28 @@ export default function Home({ news }) {
             <div className={styles.mainNewsCard}>
               <div className={styles.mainNewsCardText}>
                 <div>
-                  <h2>{news.data.main.stream[4].content.title}</h2>
+                  <Link href={`/story/${news.data.main.stream[4].id}`}>
+                    <a>
+                      <h2>{news.data.main.stream[4].content.title}</h2>
+                    </a>
+                  </Link>
                 </div>
                 <div>
-                  <h2>{news.data.main.stream[5].content.title}</h2>
+                  <Link href={`/story/${news.data.main.stream[5].id}`}>
+                    <a>
+                      <h2>{news.data.main.stream[5].content.title}</h2>
+                    </a>
+                  </Link>
                 </div>
                 <div>
-                  <h2>{news.data.main.stream[6].content.title}</h2>
+                  <Link href={`/story/${news.data.main.stream[6].id}`}>
+                    <a>
+                      <h2>{news.data.main.stream[6].content.title}</h2>
+                    </a>
+                  </Link>
                 </div>
               </div>
               <div className={styles.imageWrapper}>
-                {/* <Image alt="Work" src={work} /> */}
-
                 <Image
                   layout="fill"
                   objectFit="cover"
@@ -82,13 +99,25 @@ export default function Home({ news }) {
             <div className={styles.mainNewsCard}>
               <div className={styles.mainNewsCardText}>
                 <div>
-                  <h2>{news.data.main.stream[7].content.title}</h2>
+                  <Link href={`/story/${news.data.main.stream[7].id}`}>
+                    <a>
+                      <h2>{news.data.main.stream[7].content.title}</h2>
+                    </a>
+                  </Link>
                 </div>
                 <div>
-                  <h2>{news.data.main.stream[8].content.title}</h2>
+                  <Link href={`/story/${news.data.main.stream[8].id}`}>
+                    <a>
+                      <h2>{news.data.main.stream[8].content.title}</h2>
+                    </a>
+                  </Link>
                 </div>
                 <div>
-                  <h2>{news.data.main.stream[9].content.title}</h2>
+                  <Link href={`/story/${news.data.main.stream[9].id}`}>
+                    <a>
+                      <h2>{news.data.main.stream[9].content.title}</h2>
+                    </a>
+                  </Link>
                 </div>
               </div>
               <div className={styles.imageWrapper}>
