@@ -2,8 +2,6 @@ import React from "react";
 import styles from "../../styles/Story.module.css";
 
 const StoryInfo = ({ newInfo }) => {
-  console.log(newInfo);
-
   return (
     <div className={styles.container}>
       {newInfo ? newInfo.data.contents[0].content.body.markup : null}
