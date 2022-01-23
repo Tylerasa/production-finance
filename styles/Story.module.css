@@ -3,3 +3,29 @@
     margin: auto;
   }
   
+/* 
+  .mainImageContainer{
+    position: relative;
+    width: 100%;
+    height: 100%;
+  } */
+
+
+.newsInfoText{
+  text-align: center;
+  font-size: 30px;
+  width: 600px;
+  margin: auto;
+  font-weight: bold;
+}
+
+.newspaper{
+  width: 600px;
+  margin: auto;
+
+}
+
+.caption{
+  color: #d1d1d1;
+  font-size: 12px;
+}

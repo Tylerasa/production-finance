@@ -14,7 +14,8 @@ export default function Home({ news }) {
               </div>
               <div className={styles.imageWrapper}>
                 <Image
-                  layout="fill"
+                  width="100%"
+                  height={1000}
                   objectFit="cover"
                   alt="Work"
                   src={
