@@ -14,7 +14,7 @@
 .newsInfoText{
   text-align: center;
   font-size: 30px;
-  width: 600px;
+  max-width: 800px;
   margin: auto;
   font-weight: bold;
 }

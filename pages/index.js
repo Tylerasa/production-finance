@@ -8,25 +8,32 @@ export default function Home({ news }) {
       {news ? (
         <div className={styles.newWrapper}>
           <div>
-            <div className={styles.mainNewsCard}>
-              <div className={styles.mainNewsCardText}>
-                <h2>{news.data.main.stream[0].content.title}</h2>
-              </div>
-              <div className={styles.imageWrapper}>
-                <Image
-                  // width={600}
-                  // height={300}
-                  layout="fill"
-
-                  objectFit="cover"
-                  alt="Work"
-                  src={
-                    news.data.main.stream[2].content.thumbnail.resolutions[3]
-                      .url
-                  }
-                />
-              </div>
-            </div>
+            <Link href={`/story/${news.data.main.stream[0].id}`}>
+              <a>
+                <div className={styles.mainNewsCard}>
+                  <div className={styles.mainNewsCardText}>
+                    <Link href={`/story/${news.data.main.stream[0].id}`}>
+                      <a>
+                        <h2>{news.data.main.stream[0].content.title}</h2>
+                      </a>
+                    </Link>
+                  </div>
+                  <div className={styles.imageWrapper}>
+                    <Image
+                      // width={600}
+                      // height={300}
+                      layout="fill"
+                      objectFit="cover"
+                      alt="Work"
+                      src={
+                        news.data.main.stream[0].content.thumbnail
+                          .resolutions[3].url
+                      }
+                    />
+                  </div>
+                </div>
+              </a>
+            </Link>
             <div className={styles.mainNewsCard}>
               <div className={styles.mainNewsCardText}>
                 <div>
@@ -52,15 +59,19 @@ export default function Home({ news }) {
                 </div>
               </div>
               <div className={styles.imageWrapper}>
-                <Image
-                  layout="fill"
-                  objectFit="cover"
-                  alt="Work"
-                  src={
-                    news.data.main.stream[1].content.thumbnail.resolutions[3]
-                      .url
-                  }
-                />
+                <Link href={`/story/${news.data.main.stream[1].id}`}>
+                  <a>
+                    <Image
+                      layout="fill"
+                      objectFit="cover"
+                      alt="Work"
+                      src={
+                        news.data.main.stream[1].content.thumbnail
+                          .resolutions[3].url
+                      }
+                    />
+                  </a>
+                </Link>
               </div>
             </div>
             <div className={styles.mainNewsCard}>
@@ -88,15 +99,19 @@ export default function Home({ news }) {
                 </div>
               </div>
               <div className={styles.imageWrapper}>
-                <Image
-                  layout="fill"
-                  objectFit="cover"
-                  alt="Work"
-                  src={
-                    news.data.main.stream[4].content.thumbnail.resolutions[3]
-                      .url
-                  }
-                />
+                <Link href={`/story/${news.data.main.stream[4].id}`}>
+                  <a>
+                    <Image
+                      layout="fill"
+                      objectFit="cover"
+                      alt="Work"
+                      src={
+                        news.data.main.stream[4].content.thumbnail
+                          .resolutions[3].url
+                      }
+                    />
+                  </a>
+                </Link>
               </div>
             </div>
             <div className={styles.mainNewsCard}>
@@ -124,17 +139,19 @@ export default function Home({ news }) {
                 </div>
               </div>
               <div className={styles.imageWrapper}>
-                {/* <Image alt="Work" src={work} /> */}
-
-                <Image
-                  layout="fill"
-                  objectFit="cover"
-                  alt="Work"
-                  src={
-                    news.data.main.stream[7].content.thumbnail.resolutions[3]
-                      .url
-                  }
-                />
+                <Link href={`/story/${news.data.main.stream[7].id}`}>
+                  <a>
+                    <Image
+                      layout="fill"
+                      objectFit="cover"
+                      alt="Work"
+                      src={
+                        news.data.main.stream[7].content.thumbnail
+                          .resolutions[3].url
+                      }
+                    />
+                  </a>
+                </Link>
               </div>
             </div>
           </div>
