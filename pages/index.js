@@ -7,7 +7,7 @@ export default function Home({ news }) {
     <div className={styles.container}>
       {news ? (
         <div className={styles.newWrapper}>
-          <div>
+          <div className={styles.newsMain}>
             <Link href={`/story/${news.data.main.stream[0].id}`}>
               <a>
                 <div className={styles.mainNewsCard}>
