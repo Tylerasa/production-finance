@@ -1,0 +1,20 @@
+.tickerItem {
+  font-size: 14px;
+  border-bottom: 1px solid #000;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.tickerSymbol {
+  text-align: left;
+  color: darkblue;
+  font-weight: bold;
+}
+
+.tickerGreen {
+  color: green;
+}
+
+.tickerRed {
+  color: red;
+}

@@ -246,5 +246,6 @@ export const getStaticProps = async () => {
   ]);
   return {
     props: { news: pageData, tickersData },
+    revalidate: 60,
   };
 };
