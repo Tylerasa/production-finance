@@ -2,8 +2,9 @@ import styles from "../styles/Home.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import Tickers from "../components/Tickers";
+import Summary from "../components/Summary";
 
-export default function Home({ news, tickersData }) {
+export default function Home({ news, tickersData, summaryData }) {
   return (
     <div className={styles.container}>
       {news ? (
@@ -208,6 +209,7 @@ export default function Home({ news, tickersData }) {
             </div> */}
 
             <Tickers tickers={tickersData} />
+            <Summary summary={summaryData} />
           </div>
         </div>
       ) : null}
@@ -230,7 +232,7 @@ export const getStaticProps = async () => {
       "x-rapidapi-key": "7pgRqEtjPFmshPmiGLuLZBzW6s0Zp1tAgcSjsnqTz8xCOgR6W8",
     },
   };
-  const [pageRes, tickersRes] = await Promise.all([
+  const [pageRes, tickersRes, summaryRes] = await Promise.all([
     fetch(
       "https://yh-finance.p.rapidapi.com/news/v2/list?region=US&snippetCount=28",
       headers
@@ -239,13 +241,18 @@ export const getStaticProps = async () => {
       "https://yh-finance.p.rapidapi.com/market/get-trending-tickers?region=US",
       getHeader
     ),
+    fetch(
+      "https://yh-finance.p.rapidapi.com/market/v2/get-summary?region=US",
+      getHeader
+    ),
   ]);
-  const [pageData, tickersData] = await Promise.all([
+  const [pageData, tickersData, summaryData] = await Promise.all([
     pageRes.json(),
     tickersRes.json(),
+    summaryRes.json(),
   ]);
   return {
-    props: { news: pageData, tickersData },
+    props: { news: pageData, tickersData, summaryData },
     revalidate: 60,
   };
 };
