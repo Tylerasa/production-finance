@@ -4,7 +4,7 @@ const Tickers = ({ tickers }) => {
   console.log(tickers);
   return (
     <div>
-      <p className={styles.tickerText}>Tickers</p>
+      <p className={styles.tickerText}>Trending Tickers</p>
       <table className={styles.table}>
         <thead>
           <tr>
