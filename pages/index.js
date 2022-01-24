@@ -1,8 +1,9 @@
 import styles from "../styles/Home.module.css";
 import Image from "next/image";
 import Link from "next/link";
+import Tickers from "../components/Tickers";
 
-export default function Home({ news }) {
+export default function Home({ news, tickersData }) {
   return (
     <div className={styles.container}>
       {news ? (
@@ -157,7 +158,7 @@ export default function Home({ news }) {
           </div>
 
           <div className={styles.aside}>
-            <div className={styles.asideSeperator}>
+            {/* <div className={styles.asideSeperator}>
               <div className={styles.mainNewsCardText}>
                 <h2>{news.data.main.stream[8].content.title}</h2>
               </div>
@@ -204,7 +205,9 @@ export default function Home({ news }) {
                   }
                 />
               </div>
-            </div>
+            </div> */}
+
+            <Tickers tickers={tickersData} />
           </div>
         </div>
       ) : null}
@@ -213,18 +216,35 @@ export default function Home({ news }) {
 }
 
 export const getStaticProps = async () => {
-  const res = await fetch(
-    "https://yh-finance.p.rapidapi.com/news/v2/list?region=US&snippetCount=28",
-    {
-      method: "POST",
-      headers: {
-        "x-rapidapi-host": "yh-finance.p.rapidapi.com",
-        "x-rapidapi-key": "7pgRqEtjPFmshPmiGLuLZBzW6s0Zp1tAgcSjsnqTz8xCOgR6W8",
-      },
-    }
-  );
-  const data = await res.json();
+  const headers = {
+    method: "POST",
+    headers: {
+      "x-rapidapi-host": "yh-finance.p.rapidapi.com",
+      "x-rapidapi-key": "7pgRqEtjPFmshPmiGLuLZBzW6s0Zp1tAgcSjsnqTz8xCOgR6W8",
+    },
+  };
+  const getHeader = {
+    method: "GET",
+    headers: {
+      "x-rapidapi-host": "yh-finance.p.rapidapi.com",
+      "x-rapidapi-key": "7pgRqEtjPFmshPmiGLuLZBzW6s0Zp1tAgcSjsnqTz8xCOgR6W8",
+    },
+  };
+  const [pageRes, tickersRes] = await Promise.all([
+    fetch(
+      "https://yh-finance.p.rapidapi.com/news/v2/list?region=US&snippetCount=28",
+      headers
+    ),
+    fetch(
+      "https://yh-finance.p.rapidapi.com/market/get-trending-tickers?region=US",
+      getHeader
+    ),
+  ]);
+  const [pageData, tickersData] = await Promise.all([
+    pageRes.json(),
+    tickersRes.json(),
+  ]);
   return {
-    props: { news: data },
+    props: { news: pageData, tickersData },
   };
 };
