@@ -4,13 +4,14 @@ const Tickers = ({ tickers }) => {
   console.log(tickers);
   return (
     <div>
-      <table>
+      <p className={styles.tickerText}>Tickers</p>
+      <table className={styles.table}>
         <thead>
           <tr>
-            <th className="tableHeader">Symbol</th>
-            <th className="tableHeader">Last Price</th>
-            <th className="tableHeader">Change</th>
-            <th className="tableHeader">% Change</th>
+            <th className={`${styles.tableHeader} ${styles.tableSymbol}`}>Symbol</th>
+            <th className={styles.tableHeader}>Last Price</th>
+            <th className={styles.tableHeader}>Change</th>
+            <th className={styles.tableHeader}>% Change</th>
           </tr>
         </thead>
         <tbody>

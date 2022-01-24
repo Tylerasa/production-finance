@@ -1,8 +1,12 @@
 .tickerItem {
   font-size: 14px;
   border-bottom: 1px solid #000;
-  padding: 10px 0;
   text-align: center;
+  cursor: pointer;
+}
+
+.tickerItem:hover{
+  background-color: #e3e3e3;
 }
 
 .tickerSymbol {
@@ -13,8 +17,36 @@
 
 .tickerGreen {
   color: green;
+  padding: 5px 0;
+
 }
 
 .tickerRed {
   color: red;
+  padding: 5px 0;
+
+}
+
+.tickerText {
+  font-size: 16px;
+  color: #111;
+  cursor: pointer;
+}
+
+.tickerText:hover {
+  opacity: 0.8;
+}
+
+.tableHeader {
+  font-size: 12px;
+  text-align: center;
+  color: #959595;
+  font-weight: 500;
+}
+
+.table {
+  width: 100%;
+}
+.tableSymbol{
+text-align: left;
 }
