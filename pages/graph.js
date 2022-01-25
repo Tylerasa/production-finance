@@ -377,9 +377,6 @@ const graph = () => {
   }
 
   const getAxisYDomain = (from, to, ref, offset) => {
-    console.log("Ref", ref);
-    console.log("from", from);
-    console.log("to", to);
     let [bottom, top] = [initialData[0][ref], initialData[0][ref]];
 
     initialData.forEach((d) => {
@@ -396,15 +393,14 @@ const graph = () => {
       </button>
 
       <LineChart
-        width={800}
-        height={400}
+        width={200}
+        height={100}
         data={initialData}
         onMouseDown={(e) => setRefAreaLeft(e.activeLabel)}
         onMouseMove={(e) => refAreaLeft && setRefAreaRight(e.activeLabel)}
-        // eslint-disable-next-line react/jsx-no-bind
         onMouseUp={zoom}
       >
-        <CartesianGrid strokeDasharray="3 3" />
+        {/* <CartesianGrid strokeDasharray="3 3" /> */}
         <XAxis
           allowDataOverflow
           dataKey="name"
@@ -417,21 +413,16 @@ const graph = () => {
           type="number"
           yAxisId="1"
         />
-        <Tooltip />
+        {/* <Tooltip /> */}
         <Line
           yAxisId="1"
           type="natural"
           dataKey="uv"
           stroke="#8884d8"
           animationDuration={300}
+          dot={false} 
         />
-        <Line
-          yAxisId="2"
-          type="natural"
-          dataKey="impression"
-          stroke="#82ca9d"
-          animationDuration={300}
-        />
+  
 
         {refAreaLeft && refAreaRight ? (
           <ReferenceArea
