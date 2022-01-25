@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default function AreGraph() {
+export default function AreaGraph() {
   return <div></div>;
 }
