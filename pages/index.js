@@ -2,9 +2,9 @@ import styles from "../styles/Home.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import Tickers from "../components/Tickers";
-import Summary from "../components/Summary";
+import Graph from "../components/Graph";
 
-export default function Home({ news, tickersData, summaryData }) {
+export default function Home({ news, tickersData, graphData }) {
   return (
     <div className={styles.container}>
       {news ? (
@@ -209,7 +209,7 @@ export default function Home({ news, tickersData, summaryData }) {
             </div> */}
 
             <Tickers tickers={tickersData} />
-            <Summary summary={summaryData} />
+            <Graph graph={graphData} />
           </div>
         </div>
       ) : null}
@@ -232,7 +232,7 @@ export const getStaticProps = async () => {
       "x-rapidapi-key": "7pgRqEtjPFmshPmiGLuLZBzW6s0Zp1tAgcSjsnqTz8xCOgR6W8",
     },
   };
-  const [pageRes, tickersRes, summaryRes] = await Promise.all([
+  const [pageRes, tickersRes, graphRes] = await Promise.all([
     fetch(
       "https://yh-finance.p.rapidapi.com/news/v2/list?region=US&snippetCount=28",
       headers
@@ -246,13 +246,13 @@ export const getStaticProps = async () => {
       getHeader
     ),
   ]);
-  const [pageData, tickersData, summaryData] = await Promise.all([
+  const [pageData, tickersData, graphData] = await Promise.all([
     pageRes.json(),
     tickersRes.json(),
-    summaryRes.json(),
+    graphRes.json(),
   ]);
   return {
-    props: { news: pageData, tickersData, summaryData },
+    props: { news: pageData, tickersData, graphData },
     revalidate: 60,
   };
 };
