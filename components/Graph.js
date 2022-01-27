@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import GraphItem from "./GraphItem";
 import styles from "../styles/Graph.module.css";
+import Link from "next/link";
 const Graph = ({ graph }) => {
   var graphData = [];
   var list = [];
@@ -27,11 +28,20 @@ const Graph = ({ graph }) => {
             .slice(0, 5)
             .map((ele, i) => {
               return (
-                <div className={styles.graphItem}>
-                  <p className={styles.graphText}>{ele.exchange}</p>
-                  <GraphItem graphData={list[i]} />
-                  <p className={styles.graphNumber}>({ele.regularMarketPreviousClose.fmt})</p>
-                </div>
+                <Link
+                  href={{
+                    pathname: `/stock/${ele.exchange}`,
+                    query: { object: JSON.stringify(list[i]) }
+                  }}
+                >
+                  <div className={styles.graphItem}>
+                    <p className={styles.graphText}>{ele.exchange}</p>
+                    <GraphItem graphData={list[i]} />
+                    <p className={styles.graphNumber}>
+                      ({ele.regularMarketPreviousClose.fmt})
+                    </p>
+                  </div>
+                </Link>
               );
             })
         : null}
