@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import GraphItem from "./GraphItem";
-
+import styles from "../styles/Graph.module.css";
 const Graph = ({ graph }) => {
   var graphData = [];
-  var temp = [];
+  var list = [];
   console.log("graph", graph);
 
   const [graphState, setGraphState] = useState([]);
@@ -12,44 +12,29 @@ const Graph = ({ graph }) => {
     ele.spark.close.map((element, i) => {
       graphData.push({
         name: ele.spark.timestamp[i],
-        uv: element,
+        uv: element
       });
     });
-    temp = graphData;
-    setGraphState([...graphState, temp.slice(0, 5)]);
+    list.push(graphData);
     graphData = [];
   });
-  console.log(graphState);
 
   graphData = [];
   return (
-    <div>
-      <table>
-        <thead>
-          <tr>
-            <th>Symbol</th>
-            <th>Last Price</th>
-            <th>Graph</th>
-          </tr>
-        </thead>
-        <tbody>
-          {graph && graphState
-            ? graph.marketSummaryAndSparkResponse.result
-                .slice(0, 5)
-                .map((ele) => {
-                  return (
-                    <tr>
-                      <td>{ele.symbol}</td>
-                      <td>{ele.regularMarketPreviousClose.fmt}</td>
-                      <td>
-                        <GraphItem graphData={graphState} />
-                      </td>
-                    </tr>
-                  );
-                })
-            : null}
-        </tbody>
-      </table>
+    <div className={styles.stockGraph}>
+      {graph && list
+        ? graph.marketSummaryAndSparkResponse.result
+            .slice(0, 5)
+            .map((ele, i) => {
+              return (
+                <div className={styles.graphItem}>
+                  <p className={styles.graphText}>{ele.exchange}</p>
+                  <GraphItem graphData={list[i]} />
+                  <p className={styles.graphNumber}>({ele.regularMarketPreviousClose.fmt})</p>
+                </div>
+              );
+            })
+        : null}
     </div>
   );
 };

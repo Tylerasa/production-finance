@@ -69,10 +69,10 @@ const GraphItem = ({graphData}) => {
   };
 
   return (
-    <div>
+    <div style={{width: "140px", height: "50px"}}>
       <LineChart
-        width={200}
-        height={100}
+        width={140}
+        height={70}
         data={graphData}
         onMouseDown={(e) => setRefAreaLeft(e.activeLabel)}
         onMouseMove={(e) => refAreaLeft && setRefAreaRight(e.activeLabel)}
@@ -84,12 +84,14 @@ const GraphItem = ({graphData}) => {
           dataKey="name"
           domain={[left, right]}
           type="number"
+          tick={false}
         />
         <YAxis
           allowDataOverflow
           domain={[bottom, top]}
           type="number"
           yAxisId="1"
+          tick={false}
         />
         {/* <Tooltip /> */}
         <Line

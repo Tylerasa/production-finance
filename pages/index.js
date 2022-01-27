@@ -7,6 +7,8 @@ import Graph from "../components/Graph";
 export default function Home({ news, tickersData, graphData }) {
   return (
     <div className={styles.container}>
+      <Graph graph={graphData} />
+
       {news ? (
         <div className={styles.newWrapper}>
           <div className={styles.newsMain}>
@@ -209,7 +211,6 @@ export default function Home({ news, tickersData, graphData }) {
             </div> */}
 
             <Tickers tickers={tickersData} />
-            <Graph graph={graphData} />
           </div>
         </div>
       ) : null}
@@ -222,15 +223,15 @@ export const getStaticProps = async () => {
     method: "POST",
     headers: {
       "x-rapidapi-host": "yh-finance.p.rapidapi.com",
-      "x-rapidapi-key": "7pgRqEtjPFmshPmiGLuLZBzW6s0Zp1tAgcSjsnqTz8xCOgR6W8",
-    },
+      "x-rapidapi-key": "7pgRqEtjPFmshPmiGLuLZBzW6s0Zp1tAgcSjsnqTz8xCOgR6W8"
+    }
   };
   const getHeader = {
     method: "GET",
     headers: {
       "x-rapidapi-host": "yh-finance.p.rapidapi.com",
-      "x-rapidapi-key": "7pgRqEtjPFmshPmiGLuLZBzW6s0Zp1tAgcSjsnqTz8xCOgR6W8",
-    },
+      "x-rapidapi-key": "7pgRqEtjPFmshPmiGLuLZBzW6s0Zp1tAgcSjsnqTz8xCOgR6W8"
+    }
   };
   const [pageRes, tickersRes, graphRes] = await Promise.all([
     fetch(
@@ -244,15 +245,15 @@ export const getStaticProps = async () => {
     fetch(
       "https://yh-finance.p.rapidapi.com/market/v2/get-summary?region=US",
       getHeader
-    ),
+    )
   ]);
   const [pageData, tickersData, graphData] = await Promise.all([
     pageRes.json(),
     tickersRes.json(),
-    graphRes.json(),
+    graphRes.json()
   ]);
   return {
     props: { news: pageData, tickersData, graphData },
-    revalidate: 60,
+    revalidate: 60
   };
 };
