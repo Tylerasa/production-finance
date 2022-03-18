@@ -8,7 +8,9 @@ const Tickers = ({ tickers }) => {
       <table className={styles.table}>
         <thead>
           <tr>
-            <th className={`${styles.tableHeader} ${styles.tableSymbol}`}>Symbol</th>
+            <th className={`${styles.tableHeader} ${styles.tableSymbol}`}>
+              Symbol
+            </th>
             <th className={styles.tableHeader}>Last Price</th>
             <th className={styles.tableHeader}>Change</th>
             <th className={styles.tableHeader}>% Change</th>
@@ -16,10 +18,12 @@ const Tickers = ({ tickers }) => {
         </thead>
         <tbody>
           {tickers
-            ? tickers.finance.result[0].quotes.slice(0, 5).map((ele) => {
+            ? tickers.finance.result[0].quotes.slice(0, 5).map((ele, i) => {
                 return (
-                  <tr className={`${styles.tickerItem} `}>
-                    <td className={`${styles.tickerSymbol}`}>{ele.symbol} </td>
+                  <tr key={i} className={`${styles.tickerItem} `}>
+                    <td className={`${styles.tickerSymbol}`}>
+                      {ele.symbol}{" "}
+                    </td>
                     <td>
                       {Math.round(
                         (ele.regularMarketPreviousClose + Number.EPSILON) * 100

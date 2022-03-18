@@ -75,7 +75,7 @@ const GraphItem = ({graphData}) => {
         height={70}
         data={graphData}
         onMouseDown={(e) => setRefAreaLeft(e.activeLabel)}
-        onMouseMove={(e) => refAreaLeft && setRefAreaRight(e.activeLabel)}
+        // onMouseMove={(e) => refAreaLeft && setRefAreaRight(e.activeLabel)}
         onMouseUp={zoom}
       >
         {/* <CartesianGrid strokeDasharray="3 3" /> */}

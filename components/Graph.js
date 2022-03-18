@@ -8,7 +8,7 @@ const Graph = ({ graph }) => {
   console.log("graph", graph);
 
   const [graphState, setGraphState] = useState([]);
-  graph.marketSummaryAndSparkResponse.result.slice(0, 5).map((ele) => {
+  graph.marketSummaryAndSparkResponse.result.slice(0, 5).map(ele => {
     ele.spark.close.map((element, i) => {
       graphData.push({
         name: ele.spark.timestamp[i],
@@ -28,14 +28,17 @@ const Graph = ({ graph }) => {
             .map((ele, i) => {
               return (
                 <Link
-                href={`/stock/${ele.exchange}`}
+                  key={i}
+                  href={`/stock/${ele.exchange}`}
                   // href={{
                   //   pathname: `/stock/${ele.exchange}`,
                   //   query: { object: JSON.stringify(list[i]) }
                   // }}
                 >
                   <div className={styles.graphItem}>
-                    <p className={styles.graphText}>{ele.exchange}</p>
+                    <p className={styles.graphText}>
+                      {ele.exchange}
+                    </p>
                     <GraphItem graphData={list[i]} />
                     <p className={styles.graphNumber}>
                       ({ele.regularMarketPreviousClose.fmt})
@@ -50,4 +53,3 @@ const Graph = ({ graph }) => {
 };
 
 export default Graph;
-
